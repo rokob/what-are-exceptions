@@ -1,0 +1,89 @@
+TEXT %22%22.main(SB) /Users/weiss/Code/rokob/what-are-exceptions/go/throws.go
+	throws.go:3	0x2e5	65488b0c2500000000	GS MOVQ GS:0, CX	[5:9]R_TLS_LE
+	throws.go:3	0x2ee	483b6110		CMPQ 0x10(CX), SP	
+	throws.go:3	0x2f2	764f			JBE 0x343		
+	throws.go:3	0x2f4	4883ec18		SUBQ $0x18, SP		
+	throws.go:3	0x2f8	48896c2410		MOVQ BP, 0x10(SP)	
+	throws.go:3	0x2fd	488d6c2410		LEAQ 0x10(SP), BP	
+	throws.go:7	0x302	c7042400000000		MOVL $0x0, 0(SP)	
+	throws.go:7	0x309	488d0500000000		LEAQ 0(IP), AX		[3:7]R_PCREL:%22%22.main.func1·f
+	throws.go:7	0x310	4889442408		MOVQ AX, 0x8(SP)	
+	throws.go:7	0x315	e800000000		CALL 0x31a		[1:5]R_CALL:runtime.deferproc
+	throws.go:7	0x31a	85c0			TESTL AX, AX		
+	throws.go:7	0x31c	7515			JNE 0x333		
+	throws.go:8	0x31e	e800000000		CALL 0x323		[1:5]R_CALL:%22%22.other
+	throws.go:9	0x323	90			NOPL			
+	throws.go:9	0x324	e800000000		CALL 0x329		[1:5]R_CALL:runtime.deferreturn
+	throws.go:9	0x329	488b6c2410		MOVQ 0x10(SP), BP	
+	throws.go:9	0x32e	4883c418		ADDQ $0x18, SP		
+	throws.go:9	0x332	c3			RET			
+	throws.go:7	0x333	90			NOPL			
+	throws.go:7	0x334	e800000000		CALL 0x339		[1:5]R_CALL:runtime.deferreturn
+	throws.go:7	0x339	488b6c2410		MOVQ 0x10(SP), BP	
+	throws.go:7	0x33e	4883c418		ADDQ $0x18, SP		
+	throws.go:7	0x342	c3			RET			
+	throws.go:3	0x343	e800000000		CALL 0x348		[1:5]R_CALL:runtime.morestack_noctxt
+	throws.go:3	0x348	eb9b			JMP %22%22.main(SB)	
+
+TEXT %22%22.other(SB) /Users/weiss/Code/rokob/what-are-exceptions/go/throws.go
+	throws.go:11	0x36c	65488b0c2500000000	GS MOVQ GS:0, CX	[5:9]R_TLS_LE
+	throws.go:11	0x375	483b6110		CMPQ 0x10(CX), SP	
+	throws.go:11	0x379	7657			JBE 0x3d2		
+	throws.go:11	0x37b	4883ec38		SUBQ $0x38, SP		
+	throws.go:11	0x37f	48896c2430		MOVQ BP, 0x30(SP)	
+	throws.go:11	0x384	488d6c2430		LEAQ 0x30(SP), BP	
+	throws.go:12	0x389	488d0500000000		LEAQ 0(IP), AX		[3:7]R_PCREL:go.string."woof"
+	throws.go:12	0x390	4889442420		MOVQ AX, 0x20(SP)	
+	throws.go:12	0x395	48c744242804000000	MOVQ $0x4, 0x28(SP)	
+	throws.go:12	0x39e	488d0500000000		LEAQ 0(IP), AX		[3:7]R_PCREL:type.string
+	throws.go:12	0x3a5	48890424		MOVQ AX, 0(SP)		
+	throws.go:12	0x3a9	488d442420		LEAQ 0x20(SP), AX	
+	throws.go:12	0x3ae	4889442408		MOVQ AX, 0x8(SP)	
+	throws.go:12	0x3b3	e800000000		CALL 0x3b8		[1:5]R_CALL:runtime.convT2E
+	throws.go:12	0x3b8	488b442410		MOVQ 0x10(SP), AX	
+	throws.go:12	0x3bd	488b4c2418		MOVQ 0x18(SP), CX	
+	throws.go:12	0x3c2	48890424		MOVQ AX, 0(SP)		
+	throws.go:12	0x3c6	48894c2408		MOVQ CX, 0x8(SP)	
+	throws.go:12	0x3cb	e800000000		CALL 0x3d0		[1:5]R_CALL:runtime.gopanic
+	throws.go:12	0x3d0	0f0b			UD2			
+	throws.go:11	0x3d2	e800000000		CALL 0x3d7		[1:5]R_CALL:runtime.morestack_noctxt
+	throws.go:11	0x3d7	eb93			JMP %22%22.other(SB)	
+
+TEXT %22%22.main.func1(SB) /Users/weiss/Code/rokob/what-are-exceptions/go/throws.go
+	throws.go:4	0x3f1	65488b0c2500000000	GS MOVQ GS:0, CX		[5:9]R_TLS_LE
+	throws.go:4	0x3fa	483b6110		CMPQ 0x10(CX), SP		
+	throws.go:4	0x3fe	7626			JBE 0x426			
+	throws.go:4	0x400	4883ec20		SUBQ $0x20, SP			
+	throws.go:4	0x404	48896c2418		MOVQ BP, 0x18(SP)		
+	throws.go:4	0x409	488d6c2418		LEAQ 0x18(SP), BP		
+	throws.go:5	0x40e	488d442428		LEAQ 0x28(SP), AX		
+	throws.go:5	0x413	48890424		MOVQ AX, 0(SP)			
+	throws.go:5	0x417	e800000000		CALL 0x41c			[1:5]R_CALL:runtime.gorecover
+	throws.go:7	0x41c	488b6c2418		MOVQ 0x18(SP), BP		
+	throws.go:7	0x421	4883c420		ADDQ $0x20, SP			
+	throws.go:7	0x425	c3			RET				
+	throws.go:4	0x426	e800000000		CALL 0x42b			[1:5]R_CALL:runtime.morestack_noctxt
+	throws.go:4	0x42b	ebc4			JMP %22%22.main.func1(SB)	
+
+TEXT %22%22.init(SB) /Users/weiss/Code/rokob/what-are-exceptions/go/throws.go
+	throws.go:14	0x447	65488b0c2500000000	GS MOVQ GS:0, CX	[5:9]R_TLS_LE
+	throws.go:14	0x450	483b6110		CMPQ 0x10(CX), SP	
+	throws.go:14	0x454	7639			JBE 0x48f		
+	throws.go:14	0x456	4883ec08		SUBQ $0x8, SP		
+	throws.go:14	0x45a	48892c24		MOVQ BP, 0(SP)		
+	throws.go:14	0x45e	488d2c24		LEAQ 0(SP), BP		
+	throws.go:14	0x462	0fb60500000000		MOVZX 0(IP), AX		[3:7]R_PCREL:%22%22.initdone·
+	throws.go:14	0x469	3c01			CMPL $0x1, AL		
+	throws.go:14	0x46b	7609			JBE 0x476		
+	throws.go:14	0x46d	488b2c24		MOVQ 0(SP), BP		
+	throws.go:14	0x471	4883c408		ADDQ $0x8, SP		
+	throws.go:14	0x475	c3			RET			
+	throws.go:14	0x476	7507			JNE 0x47f		
+	throws.go:14	0x478	e800000000		CALL 0x47d		[1:5]R_CALL:runtime.throwinit
+	throws.go:14	0x47d	0f0b			UD2			
+	throws.go:14	0x47f	c6050000000002		MOVB $0x2, 0(IP)	[2:6]R_PCREL:%22%22.initdone·+-1
+	throws.go:14	0x486	488b2c24		MOVQ 0(SP), BP		
+	throws.go:14	0x48a	4883c408		ADDQ $0x8, SP		
+	throws.go:14	0x48e	c3			RET			
+	throws.go:14	0x48f	e800000000		CALL 0x494		[1:5]R_CALL:runtime.morestack_noctxt
+	throws.go:14	0x494	ebb1			JMP %22%22.init(SB)	

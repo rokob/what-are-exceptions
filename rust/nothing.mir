@@ -1,0 +1,16 @@
+fn main() -> (){
+    let mut _0: ();
+    let mut _1: ();
+    bb0: {
+        _1 = const other() -> bb1;
+    }
+    bb1: {
+        return;
+    }
+}
+fn other() -> (){
+    let mut _0: ();
+    bb0: {
+        return;
+    }
+}

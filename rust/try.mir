@@ -1,0 +1,32 @@
+fn main::{{closure}}(_1: [closure@try.rs:2:30: 4:6]) -> (){
+    let mut _0: ();
+    let mut _2: ();
+    bb0: {
+        _2 = const other() -> bb1;
+    }
+    bb1: {
+        return;
+    }
+}
+fn main() -> (){
+    let mut _0: ();
+    let mut _1: std::result::Result<(), std::boxed::Box<dyn std::any::Any + std::marker::Send>>;
+    let mut _2: [closure@try.rs:2:30: 4:6];
+    bb0: {
+        StorageLive(_2);
+        _1 = const std::panic::catch_unwind(move _2) -> bb1;
+    }
+    bb1: {
+        drop(_1) -> bb2;
+    }
+    bb2: {
+        StorageDead(_2);
+        return;
+    }
+}
+fn other() -> (){
+    let mut _0: ();
+    bb0: {
+        return;
+    }
+}

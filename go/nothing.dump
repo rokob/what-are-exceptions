@@ -1,0 +1,28 @@
+TEXT %22%22.main(SB) /Users/weiss/Code/rokob/what-are-exceptions/go/nothing.go
+	nothing.go:5	0x1c2	c3	RET	
+
+TEXT %22%22.other(SB) /Users/weiss/Code/rokob/what-are-exceptions/go/nothing.go
+	nothing.go:8	0x1cc	c3	RET	
+
+TEXT %22%22.init(SB) /Users/weiss/Code/rokob/what-are-exceptions/go/nothing.go
+	nothing.go:9	0x1d6	65488b0c2500000000	GS MOVQ GS:0, CX	[5:9]R_TLS_LE
+	nothing.go:9	0x1df	483b6110		CMPQ 0x10(CX), SP	
+	nothing.go:9	0x1e3	7639			JBE 0x21e		
+	nothing.go:9	0x1e5	4883ec08		SUBQ $0x8, SP		
+	nothing.go:9	0x1e9	48892c24		MOVQ BP, 0(SP)		
+	nothing.go:9	0x1ed	488d2c24		LEAQ 0(SP), BP		
+	nothing.go:9	0x1f1	0fb60500000000		MOVZX 0(IP), AX		[3:7]R_PCREL:%22%22.initdone·
+	nothing.go:9	0x1f8	3c01			CMPL $0x1, AL		
+	nothing.go:9	0x1fa	7609			JBE 0x205		
+	nothing.go:9	0x1fc	488b2c24		MOVQ 0(SP), BP		
+	nothing.go:9	0x200	4883c408		ADDQ $0x8, SP		
+	nothing.go:9	0x204	c3			RET			
+	nothing.go:9	0x205	7507			JNE 0x20e		
+	nothing.go:9	0x207	e800000000		CALL 0x20c		[1:5]R_CALL:runtime.throwinit
+	nothing.go:9	0x20c	0f0b			UD2			
+	nothing.go:9	0x20e	c6050000000002		MOVB $0x2, 0(IP)	[2:6]R_PCREL:%22%22.initdone·+-1
+	nothing.go:9	0x215	488b2c24		MOVQ 0(SP), BP		
+	nothing.go:9	0x219	4883c408		ADDQ $0x8, SP		
+	nothing.go:9	0x21d	c3			RET			
+	nothing.go:9	0x21e	e800000000		CALL 0x223		[1:5]R_CALL:runtime.morestack_noctxt
+	nothing.go:9	0x223	ebb1			JMP %22%22.init(SB)	

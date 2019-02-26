@@ -1,0 +1,19 @@
+Constant pool (size = 11)
+Handler Table (size = 16)
+[generating bytecode for function: main]
+Parameter count 1
+Frame size 8
+   75 E> 0x10b8b3d13d6 @    0 : 93                StackCheck 
+   82 S> 0x10b8b3d13d7 @    1 : 13 04             LdaImmutableCurrentContextSlot [4]
+         0x10b8b3d13d9 @    3 : 1f fa             Star r0
+   82 E> 0x10b8b3d13db @    5 : 50 fa 03          CallUndefinedReceiver0 r0, [3]
+         0x10b8b3d13de @    8 : 04                LdaUndefined 
+   91 S> 0x10b8b3d13df @    9 : 97                Return 
+Constant pool (size = 0)
+Handler Table (size = 16)
+[generating bytecode for function: other]
+Parameter count 1
+Frame size 0
+  108 E> 0x10b8b3d14e6 @    0 : 93                StackCheck 
+         0x10b8b3d14e7 @    1 : 04                LdaUndefined 
+  112 S> 0x10b8b3d14e8 @    2 : 97                Return 

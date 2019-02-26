@@ -1,0 +1,32 @@
+Constant pool (size = 11)
+Handler Table (size = 16)
+[generating bytecode for function: main]
+Parameter count 1
+Frame size 16
+   75 E> 0x2b27e09d1466 @    0 : 93                StackCheck 
+         0x2b27e09d1467 @    1 : 20 ff fa          Mov <context>, r0
+   92 S> 0x2b27e09d146a @    4 : 13 04             LdaImmutableCurrentContextSlot [4]
+         0x2b27e09d146c @    6 : 1f f9             Star r1
+   92 E> 0x2b27e09d146e @    8 : 50 f9 03          CallUndefinedReceiver0 r1, [3]
+         0x2b27e09d1471 @   11 : 78 14             Jump [20] (0x2b27e09d1485 @ 31)
+         0x2b27e09d1473 @   13 : 1f f9             Star r1
+         0x2b27e09d1475 @   15 : 1e fe             Ldar <closure>
+         0x2b27e09d1477 @   17 : 70 f9 00 01       CreateCatchContext r1, [0], [1]
+         0x2b27e09d147b @   21 : 1f fa             Star r0
+         0x2b27e09d147d @   23 : 06                LdaTheHole 
+         0x2b27e09d147e @   24 : 94                SetPendingMessage 
+         0x2b27e09d147f @   25 : 1e fa             Ldar r0
+         0x2b27e09d1481 @   27 : 0e f9             PushContext r1
+         0x2b27e09d1483 @   29 : 0f f9             PopContext r1
+         0x2b27e09d1485 @   31 : 04                LdaUndefined 
+  121 S> 0x2b27e09d1486 @   32 : 97                Return 
+Constant pool (size = 2)
+Handler Table (size = 48)
+   from   to       hdlr
+  (   4,  11)  ->    13 (prediction=1, data=0)
+[generating bytecode for function: other]
+Parameter count 1
+Frame size 0
+  138 E> 0x2b27e09d158e @    0 : 93                StackCheck 
+         0x2b27e09d158f @    1 : 04                LdaUndefined 
+  143 S> 0x2b27e09d1590 @    2 : 97                Return 

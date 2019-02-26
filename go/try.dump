@@ -1,0 +1,67 @@
+TEXT %22%22.main(SB) /Users/weiss/Code/rokob/what-are-exceptions/go/try.go
+	try.go:3	0x233	65488b0c2500000000	GS MOVQ GS:0, CX	[5:9]R_TLS_LE
+	try.go:3	0x23c	483b6110		CMPQ 0x10(CX), SP	
+	try.go:3	0x240	764a			JBE 0x28c		
+	try.go:3	0x242	4883ec18		SUBQ $0x18, SP		
+	try.go:3	0x246	48896c2410		MOVQ BP, 0x10(SP)	
+	try.go:3	0x24b	488d6c2410		LEAQ 0x10(SP), BP	
+	try.go:7	0x250	c7042400000000		MOVL $0x0, 0(SP)	
+	try.go:7	0x257	488d0500000000		LEAQ 0(IP), AX		[3:7]R_PCREL:%22%22.main.func1·f
+	try.go:7	0x25e	4889442408		MOVQ AX, 0x8(SP)	
+	try.go:7	0x263	e800000000		CALL 0x268		[1:5]R_CALL:runtime.deferproc
+	try.go:7	0x268	85c0			TESTL AX, AX		
+	try.go:7	0x26a	7510			JNE 0x27c		
+	try.go:9	0x26c	90			NOPL			
+	try.go:9	0x26d	e800000000		CALL 0x272		[1:5]R_CALL:runtime.deferreturn
+	try.go:9	0x272	488b6c2410		MOVQ 0x10(SP), BP	
+	try.go:9	0x277	4883c418		ADDQ $0x18, SP		
+	try.go:9	0x27b	c3			RET			
+	try.go:7	0x27c	90			NOPL			
+	try.go:7	0x27d	e800000000		CALL 0x282		[1:5]R_CALL:runtime.deferreturn
+	try.go:7	0x282	488b6c2410		MOVQ 0x10(SP), BP	
+	try.go:7	0x287	4883c418		ADDQ $0x18, SP		
+	try.go:7	0x28b	c3			RET			
+	try.go:3	0x28c	e800000000		CALL 0x291		[1:5]R_CALL:runtime.morestack_noctxt
+	try.go:3	0x291	eba0			JMP %22%22.main(SB)	
+
+TEXT %22%22.other(SB) /Users/weiss/Code/rokob/what-are-exceptions/go/try.go
+	try.go:12	0x2b3	c3	RET	
+
+TEXT %22%22.main.func1(SB) /Users/weiss/Code/rokob/what-are-exceptions/go/try.go
+	try.go:4	0x2bd	65488b0c2500000000	GS MOVQ GS:0, CX		[5:9]R_TLS_LE
+	try.go:4	0x2c6	483b6110		CMPQ 0x10(CX), SP		
+	try.go:4	0x2ca	7626			JBE 0x2f2			
+	try.go:4	0x2cc	4883ec20		SUBQ $0x20, SP			
+	try.go:4	0x2d0	48896c2418		MOVQ BP, 0x18(SP)		
+	try.go:4	0x2d5	488d6c2418		LEAQ 0x18(SP), BP		
+	try.go:5	0x2da	488d442428		LEAQ 0x28(SP), AX		
+	try.go:5	0x2df	48890424		MOVQ AX, 0(SP)			
+	try.go:5	0x2e3	e800000000		CALL 0x2e8			[1:5]R_CALL:runtime.gorecover
+	try.go:7	0x2e8	488b6c2418		MOVQ 0x18(SP), BP		
+	try.go:7	0x2ed	4883c420		ADDQ $0x20, SP			
+	try.go:7	0x2f1	c3			RET				
+	try.go:4	0x2f2	e800000000		CALL 0x2f7			[1:5]R_CALL:runtime.morestack_noctxt
+	try.go:4	0x2f7	ebc4			JMP %22%22.main.func1(SB)	
+
+TEXT %22%22.init(SB) /Users/weiss/Code/rokob/what-are-exceptions/go/try.go
+	try.go:13	0x313	65488b0c2500000000	GS MOVQ GS:0, CX	[5:9]R_TLS_LE
+	try.go:13	0x31c	483b6110		CMPQ 0x10(CX), SP	
+	try.go:13	0x320	7639			JBE 0x35b		
+	try.go:13	0x322	4883ec08		SUBQ $0x8, SP		
+	try.go:13	0x326	48892c24		MOVQ BP, 0(SP)		
+	try.go:13	0x32a	488d2c24		LEAQ 0(SP), BP		
+	try.go:13	0x32e	0fb60500000000		MOVZX 0(IP), AX		[3:7]R_PCREL:%22%22.initdone·
+	try.go:13	0x335	3c01			CMPL $0x1, AL		
+	try.go:13	0x337	7609			JBE 0x342		
+	try.go:13	0x339	488b2c24		MOVQ 0(SP), BP		
+	try.go:13	0x33d	4883c408		ADDQ $0x8, SP		
+	try.go:13	0x341	c3			RET			
+	try.go:13	0x342	7507			JNE 0x34b		
+	try.go:13	0x344	e800000000		CALL 0x349		[1:5]R_CALL:runtime.throwinit
+	try.go:13	0x349	0f0b			UD2			
+	try.go:13	0x34b	c6050000000002		MOVB $0x2, 0(IP)	[2:6]R_PCREL:%22%22.initdone·+-1
+	try.go:13	0x352	488b2c24		MOVQ 0(SP), BP		
+	try.go:13	0x356	4883c408		ADDQ $0x8, SP		
+	try.go:13	0x35a	c3			RET			
+	try.go:13	0x35b	e800000000		CALL 0x360		[1:5]R_CALL:runtime.morestack_noctxt
+	try.go:13	0x360	ebb1			JMP %22%22.init(SB)	

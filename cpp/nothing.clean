@@ -1,0 +1,10 @@
+define i32 @main() #0 {
+  %1 = alloca i32, align 4
+  store i32 0, i32* %1, align 4
+  call void @_Z5otherv()
+  ret i32 0
+}
+
+define void @_Z5otherv() #1 {
+  ret void
+}

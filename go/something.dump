@@ -1,0 +1,70 @@
+TEXT %22%22.main(SB) /Users/weiss/Code/rokob/what-are-exceptions/go/something.go
+	something.go:3	0x22c	65488b0c2500000000	GS MOVQ GS:0, CX	[5:9]R_TLS_LE
+	something.go:3	0x235	483b6110		CMPQ 0x10(CX), SP	
+	something.go:3	0x239	7654			JBE 0x28f		
+	something.go:3	0x23b	4883ec18		SUBQ $0x18, SP		
+	something.go:3	0x23f	48896c2410		MOVQ BP, 0x10(SP)	
+	something.go:3	0x244	488d6c2410		LEAQ 0x10(SP), BP	
+	something.go:4	0x249	e800000000		CALL 0x24e		[1:5]R_CALL:runtime.printlock
+	something.go:4	0x24e	48c7042401000000	MOVQ $0x1, 0(SP)	
+	something.go:4	0x256	e800000000		CALL 0x25b		[1:5]R_CALL:runtime.printint
+	something.go:4	0x25b	e800000000		CALL 0x260		[1:5]R_CALL:runtime.printunlock
+	something.go:5	0x260	e800000000		CALL 0x265		[1:5]R_CALL:runtime.printlock
+	something.go:5	0x265	488d0500000000		LEAQ 0(IP), AX		[3:7]R_PCREL:go.string."woof"
+	something.go:5	0x26c	48890424		MOVQ AX, 0(SP)		
+	something.go:5	0x270	48c744240804000000	MOVQ $0x4, 0x8(SP)	
+	something.go:5	0x279	e800000000		CALL 0x27e		[1:5]R_CALL:runtime.printstring
+	something.go:5	0x27e	e800000000		CALL 0x283		[1:5]R_CALL:runtime.printunlock
+	something.go:5	0x283	eb00			JMP 0x285		
+	something.go:6	0x285	488b6c2410		MOVQ 0x10(SP), BP	
+	something.go:6	0x28a	4883c418		ADDQ $0x18, SP		
+	something.go:6	0x28e	c3			RET			
+	something.go:3	0x28f	e800000000		CALL 0x294		[1:5]R_CALL:runtime.morestack_noctxt
+	something.go:3	0x294	eb96			JMP %22%22.main(SB)	
+
+TEXT %22%22.other(SB) /Users/weiss/Code/rokob/what-are-exceptions/go/something.go
+	something.go:8	0x2b2	65488b0c2500000000	GS MOVQ GS:0, CX	[5:9]R_TLS_LE
+	something.go:8	0x2bb	483b6110		CMPQ 0x10(CX), SP	
+	something.go:8	0x2bf	763b			JBE 0x2fc		
+	something.go:8	0x2c1	4883ec18		SUBQ $0x18, SP		
+	something.go:8	0x2c5	48896c2410		MOVQ BP, 0x10(SP)	
+	something.go:8	0x2ca	488d6c2410		LEAQ 0x10(SP), BP	
+	something.go:9	0x2cf	e800000000		CALL 0x2d4		[1:5]R_CALL:runtime.printlock
+	something.go:5	0x2d4	488d0500000000		LEAQ 0(IP), AX		[3:7]R_PCREL:go.string."woof"
+	something.go:9	0x2db	48890424		MOVQ AX, 0(SP)		
+	something.go:9	0x2df	48c744240804000000	MOVQ $0x4, 0x8(SP)	
+	something.go:9	0x2e8	e800000000		CALL 0x2ed		[1:5]R_CALL:runtime.printstring
+	something.go:9	0x2ed	e800000000		CALL 0x2f2		[1:5]R_CALL:runtime.printunlock
+	something.go:10	0x2f2	488b6c2410		MOVQ 0x10(SP), BP	
+	something.go:10	0x2f7	4883c418		ADDQ $0x18, SP		
+	something.go:10	0x2fb	c3			RET			
+	something.go:8	0x2fc	e800000000		CALL 0x301		[1:5]R_CALL:runtime.morestack_noctxt
+	something.go:8	0x301	ebaf			JMP %22%22.other(SB)	
+
+TEXT %22%22.init(SB) /Users/weiss/Code/rokob/what-are-exceptions/go/something.go
+	something.go:11	0x321	65488b0c2500000000	GS MOVQ GS:0, CX	[5:9]R_TLS_LE
+	something.go:11	0x32a	483b6110		CMPQ 0x10(CX), SP	
+	something.go:11	0x32e	764d			JBE 0x37d		
+	something.go:11	0x330	4883ec08		SUBQ $0x8, SP		
+	something.go:11	0x334	48892c24		MOVQ BP, 0(SP)		
+	something.go:11	0x338	488d2c24		LEAQ 0(SP), BP		
+	something.go:11	0x33c	0fb60500000000		MOVZX 0(IP), AX		[3:7]R_PCREL:%22%22.initdone·
+	something.go:11	0x343	3c01			CMPL $0x1, AL		
+	something.go:11	0x345	7702			JA 0x349		
+	something.go:11	0x347	eb09			JMP 0x352		
+	something.go:11	0x349	488b2c24		MOVQ 0(SP), BP		
+	something.go:11	0x34d	4883c408		ADDQ $0x8, SP		
+	something.go:11	0x351	c3			RET			
+	something.go:11	0x352	0fb60500000000		MOVZX 0(IP), AX		[3:7]R_PCREL:%22%22.initdone·
+	something.go:11	0x359	3c01			CMPL $0x1, AL		
+	something.go:11	0x35b	7402			JE 0x35f		
+	something.go:11	0x35d	eb07			JMP 0x366		
+	something.go:11	0x35f	e800000000		CALL 0x364		[1:5]R_CALL:runtime.throwinit
+	something.go:11	0x364	0f0b			UD2			
+	something.go:11	0x366	c6050000000001		MOVB $0x1, 0(IP)	[2:6]R_PCREL:%22%22.initdone·+-1
+	something.go:11	0x36d	c6050000000002		MOVB $0x2, 0(IP)	[2:6]R_PCREL:%22%22.initdone·+-1
+	something.go:11	0x374	488b2c24		MOVQ 0(SP), BP		
+	something.go:11	0x378	4883c408		ADDQ $0x8, SP		
+	something.go:11	0x37c	c3			RET			
+	something.go:11	0x37d	e800000000		CALL 0x382		[1:5]R_CALL:runtime.morestack_noctxt
+	something.go:11	0x382	eb9d			JMP %22%22.init(SB)	

@@ -1,0 +1,21 @@
+== disasm: #<ISeq:<main>@./nothing.rb>==================================
+0002 putspecialobject 1
+0004 putobject        :main
+0006 putiseq          main
+0008 opt_send_without_block <callinfo!mid:core#define_method, argc:2, ARGS_SIMPLE>, <callcache>
+0011 pop              
+0014 putspecialobject 1
+0016 putobject        :other
+0018 putiseq          other
+0020 opt_send_without_block <callinfo!mid:core#define_method, argc:2, ARGS_SIMPLE>, <callcache>
+0023 pop              
+0026 putself          
+0027 opt_send_without_block <callinfo!mid:main, argc:0, FCALL|VCALL|ARGS_SIMPLE>, <callcache>
+0030 leave            
+== disasm: #<ISeq:main@./nothing.rb>====================================
+0004 putself          
+0005 opt_send_without_block <callinfo!mid:other, argc:0, FCALL|VCALL|ARGS_SIMPLE>, <callcache>
+0010 leave                                                            (   2)
+== disasm: #<ISeq:other@./nothing.rb>===================================
+0002 putnil           
+0005 leave            

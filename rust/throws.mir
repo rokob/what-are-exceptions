@@ -1,0 +1,49 @@
+fn main::{{closure}}(_1: [closure@throws.rs:2:30: 4:6]) -> (){
+    let mut _0: ();
+    let mut _2: ();
+    bb0: {
+        _2 = const other() -> bb1;
+    }
+    bb1: {
+        return;
+    }
+}
+fn main() -> (){
+    let mut _0: ();
+    let mut _1: std::result::Result<(), std::boxed::Box<dyn std::any::Any + std::marker::Send>>;
+    let mut _2: [closure@throws.rs:2:30: 4:6];
+    bb0: {
+        StorageLive(_2);
+        _1 = const std::panic::catch_unwind(move _2) -> bb1;
+    }
+    bb1: {
+        drop(_1) -> bb2;
+    }
+    bb2: {
+        StorageDead(_2);
+        return;
+    }
+}
+fn other() -> (){
+    let mut _0: ();
+    let mut _1: &(&str, u32, u32);
+    let mut _2: &(&str, u32, u32);
+    bb0: {
+        StorageLive(_1);
+        StorageLive(_2);
+        _2 = &(promoted[0]: (&str, u32, u32));
+        _1 = _2;
+        const std::rt::begin_panic(const "woof", move _1);
+    }
+}
+promoted[0] in other: (&str, u32, u32) ={
+    let mut _0: (&str, u32, u32);
+    let mut _1: (&str, u32, u32);
+    bb0: {
+        (_1.0: &str) = const "throws.rs";
+        (_1.1: u32) = const 8u32;
+        (_1.2: u32) = const 5u32;
+        _0 = move _1;
+        return;
+    }
+}
