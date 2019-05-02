@@ -1,0 +1,117 @@
+Disassembly of another:
+ 15           0 SETUP_FINALLY           70 (to 72)
+              2 SETUP_EXCEPT            26 (to 30)
+
+ 16           4 LOAD_CONST               1 (4)
+              6 LOAD_CONST               1 (4)
+              8 COMPARE_OP               2 (==)
+             10 POP_JUMP_IF_FALSE       20
+
+ 17          12 LOAD_GLOBAL              0 (one_more)
+             14 CALL_FUNCTION            0
+             16 POP_TOP
+             18 JUMP_FORWARD             6 (to 26)
+
+ 19     >>   20 LOAD_GLOBAL              1 (bad)
+             22 CALL_FUNCTION            0
+             24 POP_TOP
+        >>   26 POP_BLOCK
+             28 JUMP_FORWARD            38 (to 68)
+
+ 20     >>   30 DUP_TOP
+             32 LOAD_GLOBAL              2 (Exception)
+             34 COMPARE_OP              10 (exception match)
+             36 POP_JUMP_IF_FALSE       66
+             38 POP_TOP
+             40 STORE_FAST               0 (e)
+             42 POP_TOP
+             44 SETUP_FINALLY            8 (to 54)
+
+ 21          46 LOAD_FAST                0 (e)
+             48 RAISE_VARARGS            1
+             50 POP_BLOCK
+             52 LOAD_CONST               0 (None)
+        >>   54 LOAD_CONST               0 (None)
+             56 STORE_FAST               0 (e)
+             58 DELETE_FAST              0 (e)
+             60 END_FINALLY
+             62 POP_EXCEPT
+             64 JUMP_FORWARD             2 (to 68)
+        >>   66 END_FINALLY
+        >>   68 POP_BLOCK
+             70 LOAD_CONST               0 (None)
+
+ 23     >>   72 LOAD_GLOBAL              3 (good)
+             74 CALL_FUNCTION            0
+             76 POP_TOP
+             78 END_FINALLY
+             80 LOAD_CONST               0 (None)
+             82 RETURN_VALUE
+
+Disassembly of good:
+ 26           0 LOAD_CONST               0 (None)
+              2 RETURN_VALUE
+
+Disassembly of main:
+  2           0 SETUP_EXCEPT            12 (to 14)
+
+  3           2 LOAD_GLOBAL              0 (other)
+              4 LOAD_CONST               1 (True)
+              6 CALL_FUNCTION            1
+              8 POP_TOP
+             10 POP_BLOCK
+             12 JUMP_FORWARD            40 (to 54)
+
+  4     >>   14 DUP_TOP
+             16 LOAD_GLOBAL              1 (Exception)
+             18 COMPARE_OP              10 (exception match)
+             20 POP_JUMP_IF_FALSE       52
+             22 POP_TOP
+             24 STORE_FAST               0 (e)
+             26 POP_TOP
+             28 SETUP_FINALLY           10 (to 40)
+
+  5          30 LOAD_GLOBAL              2 (main_good)
+             32 CALL_FUNCTION            0
+             34 POP_TOP
+
+  6          36 POP_BLOCK
+             38 LOAD_CONST               0 (None)
+        >>   40 LOAD_CONST               0 (None)
+             42 STORE_FAST               0 (e)
+             44 DELETE_FAST              0 (e)
+             46 END_FINALLY
+             48 POP_EXCEPT
+             50 JUMP_FORWARD             2 (to 54)
+        >>   52 END_FINALLY
+        >>   54 LOAD_CONST               0 (None)
+             56 RETURN_VALUE
+
+Disassembly of main_good:
+ 29           0 LOAD_CONST               0 (None)
+              2 RETURN_VALUE
+
+Disassembly of one_more:
+ 32           0 LOAD_GLOBAL              0 (Exception)
+              2 LOAD_CONST               1 ('one_more:woof')
+              4 CALL_FUNCTION            1
+              6 RAISE_VARARGS            1
+              8 LOAD_CONST               0 (None)
+             10 RETURN_VALUE
+
+Disassembly of other:
+  9           0 LOAD_FAST                0 (cond)
+              2 POP_JUMP_IF_FALSE       12
+
+ 10           4 LOAD_GLOBAL              0 (another)
+              6 CALL_FUNCTION            0
+              8 POP_TOP
+             10 JUMP_FORWARD             8 (to 20)
+
+ 12     >>   12 LOAD_GLOBAL              1 (Exception)
+             14 LOAD_CONST               1 ('other:woof')
+             16 CALL_FUNCTION            1
+             18 RAISE_VARARGS            1
+        >>   20 LOAD_CONST               0 (None)
+             22 RETURN_VALUE
+

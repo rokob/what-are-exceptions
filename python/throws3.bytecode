@@ -1,0 +1,38 @@
+Disassembly of main:
+  2           0 SETUP_EXCEPT            10 (to 12)
+
+  3           2 LOAD_GLOBAL              0 (other)
+              4 CALL_FUNCTION            0
+              6 POP_TOP
+              8 POP_BLOCK
+             10 JUMP_FORWARD            34 (to 46)
+
+  4     >>   12 DUP_TOP
+             14 LOAD_GLOBAL              1 (Exception)
+             16 COMPARE_OP              10 (exception match)
+             18 POP_JUMP_IF_FALSE       44
+             20 POP_TOP
+             22 STORE_FAST               0 (e)
+             24 POP_TOP
+             26 SETUP_FINALLY            4 (to 32)
+
+  5          28 POP_BLOCK
+             30 LOAD_CONST               0 (None)
+        >>   32 LOAD_CONST               0 (None)
+             34 STORE_FAST               0 (e)
+             36 DELETE_FAST              0 (e)
+             38 END_FINALLY
+             40 POP_EXCEPT
+             42 JUMP_FORWARD             2 (to 46)
+        >>   44 END_FINALLY
+        >>   46 LOAD_CONST               0 (None)
+             48 RETURN_VALUE
+
+Disassembly of other:
+  8           0 LOAD_GLOBAL              0 (Exception)
+              2 LOAD_CONST               1 ('woof')
+              4 CALL_FUNCTION            1
+              6 RAISE_VARARGS            1
+              8 LOAD_CONST               0 (None)
+             10 RETURN_VALUE
+

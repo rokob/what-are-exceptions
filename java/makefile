@@ -1,3 +1,5 @@
+.PHONY: clean throws try nothing throwsb tryb nothingb finally finallyb all
+
 clean:
 	rm *.class
 
@@ -19,4 +21,10 @@ tryb:
 nothingb:
 	javap -c Nothing.class > Nothing.bytecode
 
-all: throws nothing try throwsb nothingb tryb
+finally:
+	javac Finally.java
+
+finallyb:
+	javap -c Finally.class > Finally.bytecode
+
+all: throws nothing try throwsb nothingb tryb finally finallyb

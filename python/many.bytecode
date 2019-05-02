@@ -1,0 +1,101 @@
+Disassembly of another:
+ 15           0 SETUP_FINALLY           65 (to 68)
+              3 SETUP_EXCEPT            33 (to 39)
+
+ 16           6 LOAD_CONST               3 (4)
+              9 LOAD_CONST               2 (4)
+             12 COMPARE_OP               2 (==)
+             15 POP_JUMP_IF_FALSE       28
+
+ 17          18 LOAD_GLOBAL              0 (one_more)
+             21 CALL_FUNCTION            0
+             24 POP_TOP             
+             25 JUMP_FORWARD             7 (to 35)
+
+ 19     >>   28 LOAD_GLOBAL              1 (bad)
+             31 CALL_FUNCTION            0
+             34 POP_TOP             
+        >>   35 POP_BLOCK           
+             36 JUMP_FORWARD            25 (to 64)
+
+ 20     >>   39 DUP_TOP             
+             40 LOAD_GLOBAL              2 (Exception)
+             43 COMPARE_OP              10 (exception match)
+             46 POP_JUMP_IF_FALSE       63
+             49 POP_TOP             
+             50 STORE_FAST               0 (e)
+             53 POP_TOP             
+
+ 21          54 LOAD_FAST                0 (e)
+             57 RAISE_VARARGS            1
+             60 JUMP_FORWARD             1 (to 64)
+        >>   63 END_FINALLY         
+        >>   64 POP_BLOCK           
+             65 LOAD_CONST               0 (None)
+
+ 23     >>   68 LOAD_GLOBAL              3 (good)
+             71 CALL_FUNCTION            0
+             74 POP_TOP             
+             75 END_FINALLY         
+             76 LOAD_CONST               0 (None)
+             79 RETURN_VALUE        
+
+Disassembly of good:
+ 26           0 LOAD_CONST               0 (None)
+              3 RETURN_VALUE        
+
+Disassembly of main:
+  2           0 SETUP_EXCEPT            14 (to 17)
+
+  3           3 LOAD_GLOBAL              0 (other)
+              6 LOAD_GLOBAL              1 (True)
+              9 CALL_FUNCTION            1
+             12 POP_TOP             
+             13 POP_BLOCK           
+             14 JUMP_FORWARD            26 (to 43)
+
+  4     >>   17 DUP_TOP             
+             18 LOAD_GLOBAL              2 (Exception)
+             21 COMPARE_OP              10 (exception match)
+             24 POP_JUMP_IF_FALSE       42
+             27 POP_TOP             
+             28 STORE_FAST               0 (e)
+             31 POP_TOP             
+
+  5          32 LOAD_GLOBAL              3 (main_good)
+             35 CALL_FUNCTION            0
+             38 POP_TOP             
+
+  6          39 JUMP_FORWARD             1 (to 43)
+        >>   42 END_FINALLY         
+        >>   43 LOAD_CONST               0 (None)
+             46 RETURN_VALUE        
+
+Disassembly of main_good:
+ 29           0 LOAD_CONST               0 (None)
+              3 RETURN_VALUE        
+
+Disassembly of one_more:
+ 32           0 LOAD_GLOBAL              0 (Exception)
+              3 LOAD_CONST               1 ('one_more:woof')
+              6 CALL_FUNCTION            1
+              9 RAISE_VARARGS            1
+             12 LOAD_CONST               0 (None)
+             15 RETURN_VALUE        
+
+Disassembly of other:
+  9           0 LOAD_FAST                0 (cond)
+              3 POP_JUMP_IF_FALSE       16
+
+ 10           6 LOAD_GLOBAL              0 (another)
+              9 CALL_FUNCTION            0
+             12 POP_TOP             
+             13 JUMP_FORWARD            12 (to 28)
+
+ 12     >>   16 LOAD_GLOBAL              1 (Exception)
+             19 LOAD_CONST               1 ('other:woof')
+             22 CALL_FUNCTION            1
+             25 RAISE_VARARGS            1
+        >>   28 LOAD_CONST               0 (None)
+             31 RETURN_VALUE        
+
